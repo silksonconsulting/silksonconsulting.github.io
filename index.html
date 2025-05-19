@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Silkson Consulting - Data Science Consulting</title>
+  <title>Silkson Consulting</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -258,11 +258,14 @@
     }
 
     .footer-container {
-      padding-left: 30px;
+      display: flex;
+      justify-content: flex-end;
     }
 
     .footer-column {
       max-width: 400px;
+      text-align: right;
+      padding-right: 30px;
     }
 
     .footer-heading {
@@ -276,6 +279,7 @@
       font-size: 0.9rem;
       line-height: 1.8;
       color: #555;
+      text-align: right;
     }
 
     .footer-bottom {
@@ -304,15 +308,19 @@
       .hero {
         padding: 150px 0 80px;
       }
-
+      
       .footer-container {
-        flex-direction: column;
+        justify-content: flex-start;
       }
       
       .footer-column {
-        padding: 0;
+        padding-right: 0;
+        padding-left: 30px;
         text-align: left;
-        max-width: 100%;
+      }
+      
+      .footer-contact {
+        text-align: left;
       }
     }
     
