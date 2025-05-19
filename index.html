@@ -44,21 +44,25 @@
     }
 
     .logo {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 1.8rem;
-      font-weight: 400;
-      color: #222;
-      text-decoration: none;
-      letter-spacing: 1px;
+      height: 40px;
     }
 
-    nav ul {
+    .logo img {
+      height: 100%;
+    }
+
+    /* Desktop Navigation */
+    .desktop-nav {
+      display: flex;
+    }
+
+    .desktop-nav ul {
       display: flex;
       list-style: none;
       gap: 40px;
     }
 
-    nav a {
+    .desktop-nav a {
       text-decoration: none;
       color: #333;
       font-size: 0.9rem;
@@ -68,8 +72,99 @@
       transition: color 0.3s ease;
     }
 
-    nav a:hover {
+    .desktop-nav a:hover {
       color: #888;
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1000;
+    }
+
+    .hamburger-icon {
+      display: block;
+      position: relative;
+      width: 30px;
+      height: 20px;
+    }
+
+    .hamburger-icon span {
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: #333;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-icon span:nth-child(1) {
+      top: 0;
+    }
+
+    .hamburger-icon span:nth-child(2) {
+      top: 9px;
+    }
+
+    .hamburger-icon span:nth-child(3) {
+      bottom: 0;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: #fff;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      padding: 100px 30px 30px;
+      transition: right 0.3s ease;
+      z-index: 999;
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+    }
+
+    .mobile-nav li {
+      margin-bottom: 20px;
+    }
+
+    .mobile-nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 998;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
     }
 
     /* Hero Section */
@@ -82,6 +177,15 @@
 
     .hero-content {
       max-width: 650px;
+    }
+
+    .company-name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #222;
     }
 
     h1 {
@@ -185,15 +289,16 @@
 
     /* Responsive Styles */
     @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+      .desktop-nav {
+        display: none;
       }
 
-      nav ul {
-        flex-direction: column;
-        gap: 15px;
+      .mobile-nav-toggle {
+        display: block;
+      }
+
+      .company-name {
+        font-size: 2.5rem;
       }
 
       h1 {
@@ -210,26 +315,71 @@
       }
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const overlay = document.querySelector('.overlay');
+      
+      function toggleMobileNav() {
+        mobileNav.classList.toggle('active');
+        overlay.classList.toggle('active');
+        
+        // Toggle hamburger icon animation
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        hamburgerIcon.classList.toggle('active');
+      }
+      
+      mobileNavToggle.addEventListener('click', toggleMobileNav);
+      overlay.addEventListener('click', toggleMobileNav);
+      
+      // Close menu when clicking a nav link
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', toggleMobileNav);
+      });
+    });
+  </script>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container header-container">
-      <a href="index.html" class="logo">Silkson Consulting</a>
-      <nav>
+      <a href="index.html" class="logo">
+        <img src="/api/placeholder/120/40" alt="Silkson Consulting Logo">
+      </a>
+      <nav class="desktop-nav">
         <ul>
           <li><a href="about.html">About</a></li>
           <li><a href="team.html">The Team</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
+      <button class="mobile-nav-toggle">
+        <span class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
     </div>
   </header>
+  
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">The Team</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+  <div class="overlay"></div>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
+        <h2 class="company-name">Silkson Consulting</h2>
         <h1>Data Science Consulting</h1>
         <p class="hero-subtitle">Machine Learning & Deep Learning Solutions for forward-thinking businesses since 2018.</p>
         <a href="contact.html" class="cta-btn">Get in Touch</a>
