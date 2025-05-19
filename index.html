@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Silkson Consulting - Data Science Consulting</title>
+  <title>Silkson Consulting</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -24,7 +24,6 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 30px;
-      text-align: left;
     }
 
     /* Header Styles */
@@ -170,11 +169,10 @@
 
     /* Hero Section */
     .hero {
-      height: auto;
+      height: 100vh;
       display: flex;
-      align-items: flex-start;
-      padding-top: 180px;
-      padding-bottom: 100px;
+      align-items: center;
+      padding-top: 80px;
     }
 
     .hero-content {
@@ -299,10 +297,11 @@
       }
 
       h1 {
-        font-size: 5rem;
+        font-size: 3.5rem;
       }
 
       .hero {
+        height: auto;
         padding: 150px 0 80px;
       }
 
@@ -310,16 +309,15 @@
         flex-direction: column;
       }
       
-      .footer-column {
+      .footer-column:first-child,
+      .footer-column:last-child {
         padding: 0;
         text-align: left;
         max-width: 100%;
       }
-    }
-    
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 3.5rem;
+      
+      .footer-column:last-child {
+        margin-top: 40px;
       }
     }
   </style>
@@ -385,9 +383,9 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="container" style="display: block; text-align: left;">
-      <div class="hero-content" style="margin: 0; padding-left: 30px; max-width: 100%; text-align: left;">
-        <h1 style="text-align: left;">Silkson Consulting</h1>
+    <div class="container">
+      <div class="hero-content">
+        <h1>Silkson Consulting</h1>
       </div>
     </div>
   </section>
