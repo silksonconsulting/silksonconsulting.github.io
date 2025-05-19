@@ -169,10 +169,11 @@
 
     /* Hero Section */
     .hero {
-      height: 100vh;
+      height: auto;
       display: flex;
-      align-items: center;
-      padding-top: 80px;
+      align-items: flex-start;
+      padding-top: 180px;
+      padding-bottom: 100px;
     }
 
     .hero-content {
@@ -297,11 +298,10 @@
       }
 
       h1 {
-        font-size: 3.5rem;
+        font-size: 5rem;
       }
 
       .hero {
-        height: auto;
         padding: 150px 0 80px;
       }
 
@@ -309,15 +309,16 @@
         flex-direction: column;
       }
       
-      .footer-column:first-child,
-      .footer-column:last-child {
+      .footer-column {
         padding: 0;
         text-align: left;
         max-width: 100%;
       }
-      
-      .footer-column:last-child {
-        margin-top: 40px;
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 3.5rem;
       }
     }
   </style>
