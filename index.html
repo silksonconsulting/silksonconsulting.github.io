@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Silkson Consulting</title>
+  <title>Silkson Consulting - Data Science Consulting</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -24,6 +24,7 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 30px;
+      text-align: left;
     }
 
     /* Header Styles */
@@ -258,14 +259,11 @@
     }
 
     .footer-container {
-      display: flex;
-      justify-content: flex-end;
+      padding-left: 30px;
     }
 
     .footer-column {
       max-width: 400px;
-      text-align: right;
-      padding-right: 30px;
     }
 
     .footer-heading {
@@ -279,7 +277,6 @@
       font-size: 0.9rem;
       line-height: 1.8;
       color: #555;
-      text-align: right;
     }
 
     .footer-bottom {
@@ -308,19 +305,15 @@
       .hero {
         padding: 150px 0 80px;
       }
-      
+
       .footer-container {
-        justify-content: flex-start;
+        flex-direction: column;
       }
       
       .footer-column {
-        padding-right: 0;
-        padding-left: 30px;
+        padding: 0;
         text-align: left;
-      }
-      
-      .footer-contact {
-        text-align: left;
+        max-width: 100%;
       }
     }
     
@@ -392,9 +385,9 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Silkson Consulting</h1>
+    <div class="container" style="display: block; text-align: left;">
+      <div class="hero-content" style="margin: 0; padding-left: 30px; max-width: 100%; text-align: left;">
+        <h1 style="text-align: left;">Silkson Consulting</h1>
       </div>
     </div>
   </section>
