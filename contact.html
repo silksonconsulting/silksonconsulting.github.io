@@ -375,88 +375,6 @@
       mobileNavLinks.forEach(link => {
         link.addEventListener('click', toggleMobileNav);
       });
-
-      // Handle the contact form submission
-      const contactForm = document.getElementById('contactForm');
-      const customFormContainer = document.getElementById('custom-form-container');
-      const googleForm = document.getElementById('google-form');
-      const hiddenIframe = document.getElementById('hidden-iframe');
-      
-      // Set up the actual form submission
-      hiddenIframe.onload = function() {
-        if (formSubmitted) {
-          // Show success message
-          customFormContainer.innerHTML = '<div style="text-align: center; padding: 40px 0;"><h3 style="margin-bottom: 20px; color: #222;">Thank You!</h3><p style="font-size: 1.1rem; line-height: 1.6;">Your message has been sent successfully. We\'ll get back to you shortly.</p></div>';
-        }
-      };
-      
-      let formSubmitted = false;
-      
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          // Get the Google Form URL and data from the hidden iframe
-          const googleFormDoc = googleForm.contentDocument || googleForm.contentWindow.document;
-          const realGoogleForm = googleFormDoc.querySelector('form');
-          
-          if (realGoogleForm) {
-            // Get the action URL from Google Form
-            const googleFormAction = realGoogleForm.action;
-            
-            // Set our form to submit to Google Form's action
-            contactForm.action = googleFormAction;
-            
-            // Copy values from our form to the real Google Form inputs
-            // Find input mappings - we need to find which Google Form input corresponds to each of our inputs
-            const nameInput = googleFormDoc.querySelector('input[type="text"][aria-label*="Name"]');
-            const emailInput = googleFormDoc.querySelector('input[type="text"][aria-label*="Email"]');
-            const subjectInput = googleFormDoc.querySelector('input[type="text"][aria-label*="Subject"]');
-            const messageInput = googleFormDoc.querySelector('textarea');
-            
-            // Map our form field names to Google Form field names
-            if (nameInput) {
-              const nameField = document.createElement('input');
-              nameField.type = 'hidden';
-              nameField.name = nameInput.name;
-              nameField.value = document.getElementById('name').value;
-              contactForm.appendChild(nameField);
-            }
-            
-            if (emailInput) {
-              const emailField = document.createElement('input');
-              emailField.type = 'hidden';
-              emailField.name = emailInput.name;
-              emailField.value = document.getElementById('email').value;
-              contactForm.appendChild(emailField);
-            }
-            
-            if (subjectInput) {
-              const subjectField = document.createElement('input');
-              subjectField.type = 'hidden';
-              subjectField.name = subjectInput.name;
-              subjectField.value = document.getElementById('subject').value;
-              contactForm.appendChild(subjectField);
-            }
-            
-            if (messageInput) {
-              const messageField = document.createElement('input');
-              messageField.type = 'hidden';
-              messageField.name = messageInput.name;
-              messageField.value = document.getElementById('message').value;
-              contactForm.appendChild(messageField);
-            }
-            
-            // Set the formSubmitted flag so we know to show success message
-            formSubmitted = true;
-            
-            // Submit the form
-            contactForm.submit();
-          } else {
-            console.error('Could not find Google Form');
-          }
-        });
-      }
     });
   </script>
 </head>
@@ -523,37 +441,38 @@
         </div>
         <div class="contact-form">
           <h3>Send Us a Message</h3>
-          <div id="custom-form-container">
-            <form id="contactForm" target="hidden-iframe">
-              <div class="form-group">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" id="name" name="entry.name" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="entry.email" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="subject" class="form-label">Subject</label>
-                <input type="text" id="subject" name="entry.subject" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="message" class="form-label">Message</label>
-                <textarea id="message" name="entry.message" class="form-control" required></textarea>
-              </div>
-              <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+          <!-- Google Form with styling -->
+          <div class="google-form-container">
+            <iframe id="google-form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdEnu6ygBo_LahUBeTzzPUiSdiLL3Brl8051e-s7BKInfogMg/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
           </div>
-          
-          <!-- Hidden iframe that contains the actual Google Form -->
-          <iframe id="hidden-iframe" name="hidden-iframe" style="display:none;" src="about:blank"></iframe>
-          
-          <!-- Actual Google form embed (hidden) -->
-          <iframe id="google-form" src="https://docs.google.com/forms/d/e/1FAIpQLSdEnu6ygBo_LahUBeTzzPUiSdiLL3Brl8051e-s7BKInfogMg/viewform?embedded=true" style="display:none;" width="100%" height="100%"></iframe>
         </div>
       </div>
     </div>
   </section>
+
+  <style>
+    /* Google Form Styling */
+    .google-form-container {
+      overflow: hidden;
+      height: 630px; /* Adjust height as needed */
+      position: relative;
+    }
+    
+    #google-form-iframe {
+      position: absolute;
+      top: -72px; /* Adjust to hide Google Form header */
+      left: -20px; /* Hide left margin */
+      width: calc(100% + 40px); /* Compensate for left and right margins */
+      height: 900px; /* Make iframe larger than container to hide parts */
+      background-color: transparent;
+      border: none;
+    }
+    
+    /* Hide specific Google Form elements via CSS */
+    iframe {
+      background-color: transparent !important;
+    }
+  </style>
 
   <!-- Footer -->
   <footer>
