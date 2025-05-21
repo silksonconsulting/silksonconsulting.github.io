@@ -1,1 +1,490 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Silkson Consulting</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #fafafa;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* Header Styles */
+    header {
+      padding: 40px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      transition: background-color 0.3s ease;
+      background-color: rgba(250, 250, 250, 0.95);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    .logo img {
+      height: 100%;
+    }
+
+    /* Desktop Navigation */
+    .desktop-nav {
+      display: flex;
+    }
+
+    .desktop-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+    }
+
+    .desktop-nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    .desktop-nav a:hover {
+      color: #888;
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1000;
+    }
+
+    .hamburger-icon {
+      display: block;
+      position: relative;
+      width: 30px;
+      height: 20px;
+    }
+
+    .hamburger-icon span {
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: #333;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-icon span:nth-child(1) {
+      top: 0;
+    }
+
+    .hamburger-icon span:nth-child(2) {
+      top: 9px;
+    }
+
+    .hamburger-icon span:nth-child(3) {
+      bottom: 0;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: #fff;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      padding: 100px 30px 30px;
+      transition: right 0.3s ease;
+      z-index: 999;
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+    }
+
+    .mobile-nav li {
+      margin-bottom: 20px;
+    }
+
+    .mobile-nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 998;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Page Header */
+    .page-header {
+      padding-top: 140px;
+      padding-bottom: 60px;
+      background-color: #fff;
+    }
+
+    .page-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    /* Contact Section Styles */
+    .contact-section {
+      padding: 60px 0 100px;
+      background-color: #fff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-info h3 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .contact-details {
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .contact-map {
+      margin-top: 30px;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+
+    /* Contact Form Styles */
+    .contact-form h3 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+      color: #222;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #222;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: #333;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #aaa;
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      padding: 15px 30px;
+      background-color: #222;
+      color: #fff;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #444;
+    }
+
+    /* Footer */
+    footer {
+      padding: 80px 0;
+      background-color: #f5f5f5;
+    }
+
+    .footer-container {
+      padding-left: 30px;
+    }
+
+    .footer-column {
+      max-width: 400px;
+    }
+
+    .footer-heading {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .footer-contact {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .footer-bottom {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-nav-toggle {
+        display: block;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-container {
+        flex-direction: column;
+      }
+      
+      .footer-column:first-child,
+      .footer-column:last-child {
+        padding: 0;
+        text-align: left;
+        max-width: 100%;
+      }
+      
+      .footer-column:last-child {
+        margin-top: 40px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const overlay = document.querySelector('.overlay');
+      
+      function toggleMobileNav() {
+        mobileNav.classList.toggle('active');
+        overlay.classList.toggle('active');
+        
+        // Toggle hamburger icon animation
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        hamburgerIcon.classList.toggle('active');
+      }
+      
+      mobileNavToggle.addEventListener('click', toggleMobileNav);
+      overlay.addEventListener('click', toggleMobileNav);
+      
+      // Close menu when clicking a nav link
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', toggleMobileNav);
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Silkson Consulting Logo">
+      </a>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">The Team</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-nav-toggle">
+        <span class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </header>
+  
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">The Team</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+  <div class="overlay"></div>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Contact Us</h1>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="contact-details">
+            <p>We're always happy to discuss your project and answer any questions you may have about our services.</p>
+            <p><strong>Email:</strong> daniel@silksonconsulting.com</p>
+            <p><strong>Phone:</strong> +44 7960 549110</p>
+            <p><strong>Address:</strong><br>
+            167-169 Great Portland Street<br>
+            5th Floor<br>
+            London, W1W 5PF</p>
+          </div>
+          <div class="contact-map">
+            <!-- Google Maps embed for Great Portland Street location -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.7739270142703!2d-0.1438392!3d51.5203899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad54c388f0b%3A0x19c7d93479b4c0c4!2s167-169%20Great%20Portland%20St%2C%20London%20W1W%205PF!5e0!3m2!1sen!2suk!4v1684752382934!5m2!1sen!2suk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Send Us a Message</h3>
+          <form action="#" method="POST" id="contactForm">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3 class="footer-heading">Silkson Consulting</h3>
+          <p class="footer-contact">
+            167-169 Great Portland Street<br>
+            5th Floor<br>
+            London, W1W 5PF<br>
+            <br>
+            daniel@silksonconsulting.com<br>
+            +44 7960 549110
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Silkson Consulting Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
