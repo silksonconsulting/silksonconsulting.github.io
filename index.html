@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Silkson Consulting</title>
+  <title>Contact Us - Silkson Consulting</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -167,93 +167,126 @@
       visibility: visible;
     }
 
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 80px;
-    }
-
-    .hero-content {
-      max-width: 1200px;
-      width: 100%;
-      text-align: left;
-      padding-left: 0;
-      margin-left: 0;
-    }
-
-    .company-name {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 3rem;
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      color: #222;
-    }
-
-    h1 {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 6rem; /* Increased from 4rem to 6rem */
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      color: #222;
-      text-align: left;
-      padding-left: 0;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      font-weight: 300;
-      margin-bottom: 40px;
-      color: #555;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: #222;
-      color: #fff;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background-color: #444;
-    }
-
-    /* About Section */
-    .about {
-      padding: 100px 0;
+    /* Page Header */
+    .page-header {
+      padding-top: 140px;
+      padding-bottom: 60px;
       background-color: #fff;
     }
 
-    .about-content {
-      max-width: 800px;
-      padding-left: 30px;
-      text-align: left;
+    .page-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 4rem; /* Increased from 3rem to 4rem */
+      font-weight: 400;
+      color: #222;
+      margin-bottom: 20px;
     }
 
-    .section-title {
+    /* Contact Section Styles */
+    .contact-section {
+      padding: 60px 0 100px;
+      background-color: #fff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-form h3,
+    .contact-info h3 {
       font-family: 'Libre Baskerville', serif;
-      font-size: 2rem;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: #222;
+      padding-left: 30px; /* Added to align with logo */
+    }
+
+    .contact-details {
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      padding-left: 30px; /* Added to align with logo */
+    }
+
+    .contact-map {
+      margin-top: 30px;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+
+    /* Contact Form Styles */
+    .contact-form h3 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.5rem;
       font-weight: 400;
       margin-bottom: 30px;
       color: #222;
-      text-align: left;
+      padding-left: 30px; /* Added to align with logo */
     }
 
-    .about-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #444;
-      margin-bottom: 30px;
-      text-align: left;
+    #styled-form {
+      padding-left: 30px; /* Added to align with logo */
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #222;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: #333;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #aaa;
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      padding: 15px 30px;
+      background-color: #222;
+      color: #fff;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #444;
     }
 
     /* Footer */
@@ -268,6 +301,7 @@
 
     .footer-column {
       max-width: 400px;
+      padding-left: 30px; /* Added to align with logo */
     }
 
     .footer-heading {
@@ -302,13 +336,13 @@
         display: block;
       }
 
-      h1 {
-        font-size: 4.5rem; /* Adjusted for mobile but still larger than original */
+      .page-title {
+        font-size: 2.5rem;
       }
 
-      .hero {
-        height: auto;
-        padding: 150px 0 80px;
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
 
       .footer-container {
@@ -350,6 +384,61 @@
       mobileNavLinks.forEach(link => {
         link.addEventListener('click', toggleMobileNav);
       });
+      
+      // Handle the form submission through formSubmit.co service
+      document.getElementById('submit-btn').addEventListener('click', function() {
+        // Get the form input values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        if (!name || !email || !subject || !message) {
+          alert("Please fill out all fields.");
+          return;
+        }
+        
+        // Create the URL to the Google Form with prefilled values
+        const formId = "1FAIpQLSdEnu6ygBo_LahUBeTzzPUiSdiLL3Brl8051e-s7BKInfogMg";
+        const googleFormUrl = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
+        
+        // Create a temporary form to submit to Google
+        const tempForm = document.createElement('form');
+        tempForm.method = 'POST';
+        tempForm.action = googleFormUrl;
+        tempForm.target = 'hidden-frame';
+        
+        // Find the parameter names for the Google Form
+        // These are the actual entry IDs from your Google Form
+        const params = {
+          "entry.1018652196": name,    // Name field entry ID
+          "entry.118618184": email,    // Email field entry ID
+          "entry.672955530": subject,  // Subject field entry ID
+          "entry.894175540": message   // Message field entry ID
+        };
+        
+        // Add the form fields
+        for (const key in params) {
+          if (params.hasOwnProperty(key)) {
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = key;
+            hiddenField.value = params[key];
+            tempForm.appendChild(hiddenField);
+          }
+        }
+        
+        // Add the form to the document and submit it
+        document.body.appendChild(tempForm);
+        
+        // Submit the form
+        tempForm.submit();
+        document.body.removeChild(tempForm);
+        
+        // Show the success message and hide the form
+        document.getElementById('styled-form').style.display = 'none';
+        document.getElementById('success-message').style.display = 'block';
+      });
     });
   </script>
 </head>
@@ -387,22 +476,58 @@
   </div>
   <div class="overlay"></div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container" style="padding-left: 0;">
-      <div class="hero-content" style="margin-left: 0; padding-left: 30px;">
-        <h1>Silkson Consulting</h1>
-      </div>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Contact Us</h1>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about">
+  <!-- Contact Section -->
+  <section class="contact-section">
     <div class="container">
-      <div class="about-content">
-        <h2 class="section-title">Helping businesses unlock insights with data science, machine learning, and AI.</h2>
-        <p class="about-text">Based in London, we offer data science and machine learning consulting for businesses that want to turn data into real results. Whether you're a start-up building your first model or a company looking to improve existing systems, we provide practical, tailored solutions to fit your needs.</p>
-        <p class="about-text">Working independently, we bring deep technical expertise and a hands-on approach - from exploratory analysis to deploying production-ready AI models.</p>
+      <div class="contact-grid">
+                  <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="contact-details">
+            <p>To assist you efficiently, please provide a brief description of your project or inquiry along with your goals. You can also reach out via email or phone to schedule a consultation. I typically respond within one business day.</p>
+            <p><strong>Email:</strong> daniel@silksonconsulting.com</p>
+            <p><strong>Phone:</strong> +44 7960 549110</p>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Send Us a Message</h3>
+          <div id="styled-form">
+            <form>
+              <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" class="form-control" required></textarea>
+              </div>
+              <button type="button" id="submit-btn" class="submit-btn">Send Message</button>
+            </form>
+          </div>
+          
+          <!-- Hidden iframe for the Google Form -->
+          <iframe name="hidden-frame" id="hidden-frame" style="display:none;"></iframe>
+          
+          <!-- Success message (initially hidden) -->
+          <div id="success-message" style="display:none; text-align: center; padding: 40px 0;">
+            <h3 style="margin-bottom: 20px; color: #222;">Thank You!</h3>
+            <p style="font-size: 1.1rem; line-height: 1.6;">Your message has been sent successfully. We'll get back to you shortly.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
