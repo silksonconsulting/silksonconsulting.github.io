@@ -187,7 +187,14 @@
     .about-section {
       padding: 20px 0 100px;
       background-color: #fff;
-      text-align: center;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      padding-left: 30px;
+      align-items: start;
     }
 
     .about-content {
@@ -197,11 +204,15 @@
     }
 
     .profile-image {
-      width: 400px;
+      width: 100%;
+      max-width: 400px;
       height: auto;
-      margin: 0 auto 30px auto;
       display: block;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-content {
+      text-align: left;
     }
 
     .name-heading {
@@ -209,7 +220,7 @@
       font-size: 2rem;
       font-weight: 400;
       color: #222;
-      text-align: center;
+      text-align: left;
       margin-bottom: 40px;
     }
 
@@ -217,7 +228,7 @@
       font-size: 1.2rem;
       line-height: 1.8;
       color: #444;
-      text-align: center;
+      text-align: left;
       margin-bottom: 30px;
     }
 
@@ -273,19 +284,31 @@
         padding-left: 0;
       }
 
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-left: 0;
+      }
+
       .profile-image {
         width: 320px;
         height: auto;
-        margin-bottom: 25px;
+        margin: 0 auto 25px auto;
+      }
+
+      .team-content {
+        text-align: center;
       }
 
       .name-heading {
         font-size: 1.6rem;
         margin-bottom: 30px;
+        text-align: center;
       }
 
       .about-text {
         font-size: 1.1rem;
+        text-align: center;
       }
 
       .footer-container {
@@ -374,11 +397,15 @@
   <!-- About Section -->
   <section class="about-section">
     <div class="container">
-      <div class="about-content">
-        <img src="daniel.jpg" alt="Daniel Pourabrisham - Silkson Consulting" class="profile-image">
-        <h2 class="name-heading">Daniel Pourabrisham</h2>
-        <p class="about-text">Every successful data project begins with a clear goal. Whether you want to unlock hidden insights, automate decisions, or build predictive models, the right data strategy can transform your business. With a passion for turning complex problems into actionable solutions, I help organisations harness the power of machine learning and deep learning — delivering results that matter.</p>
-        <p class="about-text">By combining technical expertise with a practical, client-focused approach, I ensure every project is aligned with your unique needs and business objectives.</p>
+      <div class="team-grid">
+        <div class="profile-column">
+          <img src="daniel.jpg" alt="Daniel Pourabrisham - Silkson Consulting" class="profile-image">
+        </div>
+        <div class="team-content">
+          <h2 class="name-heading">Daniel Pourabrisham</h2>
+          <p class="about-text">Every successful data project begins with a clear goal. Whether you want to unlock hidden insights, automate decisions, or build predictive models, the right data strategy can transform your business. With a passion for turning complex problems into actionable solutions, I help organisations harness the power of machine learning and deep learning — delivering results that matter.</p>
+          <p class="about-text">By combining technical expertise with a practical, client-focused approach, I ensure every project is aligned with your unique needs and business objectives.</p>
+        </div>
       </div>
     </div>
   </section>
